@@ -35,14 +35,7 @@ regression model for AQI prediction.
 ```text
 AQI_PREDICTION_FASTAPI/
 │
-├── app/
-│   ├── __init__.py
-│   ├── main.py
-│   ├── model.py
-│   └── schemas.py
-│
-├── models/
-│   └── tree_gridcv.pkl
+├── venv/
 │
 ├── templates/
 │   ├── layout.html
@@ -53,6 +46,7 @@ AQI_PREDICTION_FASTAPI/
 │   └── css/
 │       └── styles.css
 │
-├── .gitignore
+├── main.py
+├── tree_gridcv.pkl
 ├── requirements.txt
-└── README.md
+└── .gitignore
