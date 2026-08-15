@@ -1,0 +1,276 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<main class="page">
+
+    <section class="hero">
+        <div class="hero-text">
+            <div class="eyebrow">MACHINE LEARNING · FASTAPI</div>
+
+            <h1>
+                Predict<br>
+                <span>Air Quality Index</span>
+            </h1>
+
+            <p>
+                Enter the atmospheric and weather parameters below
+                to predict the Air Quality Index using our trained
+                machine learning model.
+            </p>
+        </div>
+
+        <div class="hero-badge">
+            <div class="badge-value">AQI</div>
+            <div class="badge-text">PREDICTION<br>MODEL</div>
+        </div>
+    </section>
+
+
+    <section class="card">
+
+        <div class="card-header">
+            <div>
+                <h2>Environmental Parameters</h2>
+                <p>Enter the required values to generate an AQI prediction.</p>
+            </div>
+
+            <div class="model-tag">
+                ML MODEL
+            </div>
+        </div>
+
+
+        <form action="/predict" method="POST">
+
+            <div class="form-grid">
+
+                <!-- Average Temperature -->
+                <div class="form-group">
+                    <label for="T">
+                        Average Temperature
+                        <span>(°C)</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="T"
+                        name="T"
+                        step="0.01"
+                        placeholder="e.g. 14.30"
+                        required
+                    >
+                </div>
+
+
+                <!-- Maximum Temperature -->
+                <div class="form-group">
+                    <label for="TM">
+                        Maximum Temperature
+                        <span>(°C)</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="TM"
+                        name="TM"
+                        step="0.01"
+                        placeholder="e.g. 21.10"
+                        required
+                    >
+                </div>
+
+
+                <!-- Minimum Temperature -->
+                <div class="form-group">
+                    <label for="Tm">
+                        Minimum Temperature
+                        <span>(°C)</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="Tm"
+                        name="Tm"
+                        step="0.01"
+                        placeholder="e.g. 10.80"
+                        required
+                    >
+                </div>
+
+
+                <!-- Sea Level Pressure -->
+                <div class="form-group">
+                    <label for="SLP">
+                        Sea Level Pressure
+                        <span>(hPa)</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="SLP"
+                        name="SLP"
+                        step="0.01"
+                        placeholder="e.g. 1019.80"
+                        required
+                    >
+                </div>
+
+
+                <!-- Humidity -->
+                <div class="form-group">
+                    <label for="H">
+                        Humidity
+                        <span>(%)</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="H"
+                        name="H"
+                        step="0.01"
+                        placeholder="e.g. 83"
+                        required
+                    >
+                </div>
+
+
+                <!-- Visibility -->
+                <div class="form-group">
+                    <label for="VV">
+                        Visibility
+                        <span>(km)</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="VV"
+                        name="VV"
+                        step="0.01"
+                        placeholder="e.g. 0.80"
+                        required
+                    >
+                </div>
+
+
+                <!-- Wind Speed -->
+                <div class="form-group">
+                    <label for="V">
+                        Wind Speed
+                        <span>(km/h)</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="V"
+                        name="V"
+                        step="0.01"
+                        placeholder="e.g. 2.60"
+                        required
+                    >
+                </div>
+
+
+                <!-- Maximum Wind Speed -->
+                <div class="form-group">
+                    <label for="VM">
+                        Maximum Wind Speed
+                        <span>(km/h)</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="VM"
+                        name="VM"
+                        step="0.01"
+                        placeholder="e.g. 7.60"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="form-footer">
+
+                <p class="form-note">
+                    All fields are required for prediction.
+                </p>
+
+                <div class="actions">
+
+                    <button type="reset" class="btn-secondary">
+                        Reset
+                    </button>
+
+                    <button type="submit" class="btn-main">
+                        Predict AQI
+
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <section class="info-grid">
+
+        <div class="info-card">
+            <div class="info-number">01</div>
+
+            <div>
+                <h3>Enter Data</h3>
+                <p>
+                    Provide the environmental and weather
+                    parameters required by the model.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="info-card">
+            <div class="info-number">02</div>
+
+            <div>
+                <h3>ML Prediction</h3>
+                <p>
+                    FastAPI sends your input to the trained
+                    machine learning model.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="info-card">
+            <div class="info-number">03</div>
+
+            <div>
+                <h3>View Result</h3>
+                <p>
+                    The predicted AQI value is displayed
+                    on the result page.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

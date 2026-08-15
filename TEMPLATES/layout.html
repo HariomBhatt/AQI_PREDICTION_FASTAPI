@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AQI Predictor</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+
+    <header class="hdr">
+
+        <div class="hdr-logo">
+
+            <div class="logo-sq">
+
+                <svg width="16" height="16" viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5">
+
+                    <path d="M12 2a10 10 0 1 0 10 10" />
+
+                    <circle
+                        cx="18"
+                        cy="6"
+                        r="3"
+                        fill="currentColor"
+                        stroke="none" />
+
+                </svg>
+
+            </div>
+
+            AQI Predictor
+
+        </div>
+
+        <div class="hdr-pill">
+            PM 2.5 MODEL
+        </div>
+
+    </header>
+
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>

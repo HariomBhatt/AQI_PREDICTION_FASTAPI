@@ -1,0 +1,177 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<main class="page">
+
+    <section class="result-hero">
+
+        <div class="eyebrow">
+            PREDICTION COMPLETE
+        </div>
+
+        <h1>
+            Your AQI<br>
+            <span>Prediction</span>
+        </h1>
+
+        <p>
+            The trained machine learning model has processed
+            your environmental parameters.
+        </p>
+
+    </section>
+
+
+    <section class="result-card">
+
+        <div class="result-label">
+            PREDICTED AIR QUALITY INDEX
+        </div>
+
+
+        <div class="result-value">
+            {{ "%.2f"|format(prediction|float) }}
+        </div>
+
+
+        {% set aqi = prediction|float %}
+
+
+        {% if aqi <= 50 %}
+
+            {% set category = "Good" %}
+            {% set description = "Air quality is considered satisfactory, and air pollution poses little or no risk." %}
+
+        {% elif aqi <= 100 %}
+
+            {% set category = "Moderate" %}
+            {% set description = "Air quality is acceptable, but some pollutants may be a concern for sensitive individuals." %}
+
+        {% elif aqi <= 150 %}
+
+            {% set category = "Unhealthy for Sensitive Groups" %}
+            {% set description = "Members of sensitive groups may experience health effects." %}
+
+        {% elif aqi <= 200 %}
+
+            {% set category = "Unhealthy" %}
+            {% set description = "Everyone may begin to experience health effects." %}
+
+        {% elif aqi <= 300 %}
+
+            {% set category = "Very Unhealthy" %}
+            {% set description = "Health alert. The risk of health effects is increased for everyone." %}
+
+        {% else %}
+
+            {% set category = "Hazardous" %}
+            {% set description = "Health warning of emergency conditions. Everyone is more likely to be affected." %}
+
+        {% endif %}
+
+
+        <div class="result-category">
+
+            <span class="category-dot"></span>
+
+            {{ category }}
+
+        </div>
+
+
+        <p class="result-description">
+            {{ description }}
+        </p>
+
+
+        <div class="aqi-scale">
+
+            <div class="scale-label">
+                <span>GOOD</span>
+                <span>MODERATE</span>
+                <span>UNHEALTHY</span>
+                <span>HAZARDOUS</span>
+            </div>
+
+            <div class="scale-bar">
+
+                <div
+                    class="scale-marker"
+                    style="left: {{ [((aqi / 500) * 100), 100]|min }}%;"
+                >
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="scale-values">
+                <span>0</span>
+                <span>100</span>
+                <span>200</span>
+                <span>300</span>
+                <span>500</span>
+            </div>
+
+        </div>
+
+
+        <div class="result-actions">
+
+            <a href="/" class="btn-main">
+
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                >
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+
+                Make Another Prediction
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="result-info">
+
+        <div class="result-info-card">
+
+            <div class="info-number">MODEL</div>
+
+            <h3>Machine Learning Prediction</h3>
+
+            <p>
+                The prediction was generated using the trained
+                Decision Tree regression model loaded through FastAPI.
+            </p>
+
+        </div>
+
+
+        <div class="result-info-card">
+
+            <div class="info-number">API</div>
+
+            <h3>FastAPI Backend</h3>
+
+            <p>
+                The prediction is processed by the FastAPI backend,
+                which connects the user interface with the ML model.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}
