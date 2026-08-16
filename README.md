@@ -52,20 +52,21 @@ AQI_PREDICTION_FASTAPI/
 └── .gitignore
 
 
-                                                                                        YOUR AQI APPLICATION
-                                                                    
-                                                                                             FastAPI
-                                                                                                │
-                                                                                  ┌─────────────┴─────────────┐
-                                                                                  │                           │
-                                                                           Web Application               REST API
-                                                                                  │                           │
-                                                                         HTML + Jinja2 templates        /api/predict
-                                                                                  │                           │
-                                                                           /predict POST                JSON request
-                                                                                  │                           │
-                                                                                  └─────────────┬─────────────┘
-                                                                                                ↓
-                                                                                        ML Model (.pkl)
-                                                                                                ↓
-                                                                                        AQI Prediction
+                                          YOUR AQI APPLICATION
+                      
+                                               FastAPI
+                                                  │
+                                    ┌─────────────┴─────────────┐
+                                    │                           │
+                             Web Application               REST API
+                                    │                           │
+                           HTML + Jinja2 templates        /api/predict
+                                    │                           │
+                             /predict POST                JSON request
+                                    │                           │
+                                    └─────────────┬─────────────┘
+                                                  ↓
+                                          ML Model (.pkl)
+                                                  ↓
+                                          AQI Prediction                                                             
+                                                             
