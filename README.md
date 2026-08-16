@@ -50,3 +50,22 @@ AQI_PREDICTION_FASTAPI/
 ├── tree_gridcv.pkl
 ├── requirements.txt
 └── .gitignore
+
+
+                    YOUR AQI APPLICATION
+
+                         FastAPI
+                            │
+              ┌─────────────┴─────────────┐
+              │                           │
+       Web Application               REST API
+              │                           │
+     HTML + Jinja2 templates        /api/predict
+              │                           │
+       /predict POST                JSON request
+              │                           │
+              └─────────────┬─────────────┘
+                            ↓
+                    ML Model (.pkl)
+                            ↓
+                    AQI Prediction
